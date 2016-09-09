@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0C03EC9-607E-46F7-A96F-210CDAE1FEBC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HtmlObjects</RootNamespace>
+    <AssemblyName>HtmlObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessOperations\AdapterOperations\Adapter.cs" />
+    <Compile Include="BusinessOperations\AdapterOperations\FirmAdapter.cs" />
+    <Compile Include="BusinessOperations\CompareOperations\CompareFirmInfos.cs" />
+    <Compile Include="BusinessOperations\CoreOperations\Remover.cs" />
+    <Compile Include="BusinessOperations\CoreOperations\Selector.cs" />
+    <Compile Include="BusinessOperations\DAO\GeneralDAO.cs" />
+    <Compile Include="BusinessOperations\DAO\MailAdresDAO.cs" />
+    <Compile Include="BusinessOperations\DAO\MatchedFirmDAO.cs" />
+    <Compile Include="BusinessOperations\DAO\UnmatchedFirmDAO.cs" />
+    <Compile Include="BusinessOperations\HtmlDocumentDirector.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\FaxMapping.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\FirmFields\Fax.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\FirmFields\MailAddress.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\FirmFields\Phone.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\FirmFields\WebAddress.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\FirmNameMapping.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\MailAddressMapping.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\PhoneMapping.cs" />
+    <Compile Include="BusinessOperations\MappingOperations\WebAddressMapping.cs" />
+    <Compile Include="BusinessOperations\POCO\Firm.cs" />
+    <Compile Include="BusinessOperations\POCO\OsbWebAddress.cs" />
+    <Compile Include="BusinessOperations\DAO\TelNumberDAO.cs" />
+    <Compile Include="BusinessOperations\XmlOperations\WebAddressConfig.cs" />
+    <Compile Include="DataOperations\DataReader\HtmlPage.cs" />
+    <Compile Include="DataOperations\DataReader\HtmlPageBuilder.cs" />
+    <Compile Include="DataOperations\DataReader\HtmlPageFromFileBuilder.cs" />
+    <Compile Include="DataOperations\DataReader\HtmlPageFromWebBuilder.cs" />
+    <Compile Include="DataOperations\DataReader\XmlReader.cs" />
+    <Compile Include="DataOperations\DataWriter\ExcelPrinter.cs" />
+    <Compile Include="DataOperations\DataWriter\XmlFileWriter.cs" />
+    <Compile Include="DataOperations\DbOperations\ConnectOperations\DataManager.cs" />
+    <Compile Include="DataOperations\DbOperations\ConnectOperations\DataProviderType.cs" />
+    <Compile Include="DataOperations\DbOperations\Entities\Email.cs" />
+    <Compile Include="DataOperations\DbOperations\Entities\MatchedFirm.cs" />
+    <Compile Include="DataOperations\DbOperations\Entities\TelNo.cs" />
+    <Compile Include="DataOperations\DbOperations\Entities\UnmatchedFirm.cs" />
+    <Compile Include="DataOperations\DbOperations\OsbDBOperations\IFirmOperation.cs" />
+    <Compile Include="DataOperations\DbOperations\OsbDBOperations\MatchedFirmOperations.cs" />
+    <Compile Include="DataOperations\DbOperations\OsbDBOperations\UnmatchedFirmOperations.cs" />
+    <Compile Include="DataOperations\DbOperations\OsbDBOperations\VFirmaEmailler.cs" />
+    <Compile Include="DataOperations\DbOperations\OsbDBOperations\VFirmaTelefonlar.cs" />
+    <Compile Include="DataOperations\DbOperations\ConnectOperations\SqlServerConnection.cs" />
+    <Compile Include="Helper\PrintConsole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceOperations\CompareService.cs" />
+    <Compile Include="ServiceOperations\ComparisonService.cs" />
+    <Compile Include="ServiceOperations\FirmService.cs" />
+    <Compile Include="ServiceOperations\GeneralService.cs" />
+    <Compile Include="ServiceOperations\OsbDBService.cs" />
+    <Compile Include="ServiceOperations\ReaderService.cs" />
+    <Compile Include="ServiceOperations\Service.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
